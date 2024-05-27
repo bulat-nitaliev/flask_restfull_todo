@@ -1,7 +1,7 @@
 from datetime import datetime
 from flask_restful import Resource, abort, fields, marshal, reqparse, marshal_with
 from flask import g, request
-from apps.todo.models import Todo
+from api.models import Todo
 
 
 task_post = reqparse.RequestParser()
