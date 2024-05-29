@@ -22,7 +22,7 @@ class TodoResource(Resource):
     @marshal_with(get_resource_fields)
     def get(self, todo_id=None):
         if todo_id:
-            todo = Todo.query.get(todo_id)
+            todo = Todo.find_by_id(todo_id)
             return todo
         todo_list = Todo.query.all()
         return todo_list
@@ -49,7 +49,7 @@ class TodoResource(Resource):
         if not todo_id:
             return abort(404)
 
-        todo = Todo.query.get(todo_id)
+        todo = Todo.find_by_id(todo_id)
 
         if not todo:
             abort(404)
